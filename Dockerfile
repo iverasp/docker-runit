@@ -5,6 +5,7 @@ RUN apt-get update -q -q && \
 
 COPY ./runsvdir-start /usr/local/sbin/runsvdir-start
 
+USER root
 CMD chown daemon /usr/local/sbin/runsvdir-start
 CMD chmod +x  /usr/local/sbin/runsvdir-start
 USER daemon
