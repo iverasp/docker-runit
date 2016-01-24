@@ -5,7 +5,9 @@ RUN apt-get update -q -q && \
 
 COPY ./runsvdir-start /usr/local/sbin/runsvdir-start
 
-RUN chmod 777  /usr/local/sbin/runsvdir-start
+RUN chown daemon /usr/local/sbin/runsvdir-start
+RUN chmod +x  /usr/local/sbin/runsvdir-start
+USER daemon
 
 ENTRYPOINT ["/usr/local/sbin/runsvdir-start"]
 
